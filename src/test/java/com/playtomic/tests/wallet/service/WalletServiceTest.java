@@ -1,4 +1,4 @@
-package com.playtomic.tests.wallet.service.impl;
+package com.playtomic.tests.wallet.service;
 
 import com.playtomic.tests.wallet.service.StripeServiceException;
 import com.playtomic.tests.wallet.service.WalletNotFoundException;
