@@ -1,4 +1,4 @@
-package com.playtomic.tests.wallet.service;
+package com.playtomic.tests.walletservice.payments.stripe;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

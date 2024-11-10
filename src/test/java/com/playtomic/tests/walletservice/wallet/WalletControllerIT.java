@@ -1,10 +1,6 @@
-package com.playtomic.tests.wallet;
+package com.playtomic.tests.walletservice.wallet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.playtomic.tests.wallet.api.WalletResponse;
-import com.playtomic.tests.wallet.api.WalletTopUpRequest;
-import com.playtomic.tests.wallet.repository.WalletEntity;
-import com.playtomic.tests.wallet.repository.WalletRepository;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -26,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @ActiveProfiles(profiles = "test")
 @AutoConfigureMockMvc
-public class WalletApplicationIT {
+public class WalletControllerIT {
 
     private static final String USER_ID = "an_user_id";
     private static final long WALLET_BALANCE = 10L;

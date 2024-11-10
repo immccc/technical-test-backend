@@ -1,7 +1,5 @@
-package com.playtomic.tests.wallet.api;
+package com.playtomic.tests.walletservice.wallet;
 
-import com.playtomic.tests.wallet.service.WalletNotFoundException;
-import com.playtomic.tests.wallet.service.WalletService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,21 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("wallets")
 @Slf4j
 public record WalletController(WalletService walletService) {
 
-    // TODO Looks like a health endpoint for the service. Perhaps should be moved out to its own controller.
-    @RequestMapping("/")
-    public void log() {
-        log.info("Logging from /");
-    }
-
-    @GetMapping("wallets/{userId}")
+    @GetMapping("{userId}")
     public WalletResponse get(@PathVariable String userId) {
         return walletService.get(userId);
     }
 
-    @PostMapping("wallets")
+    @PostMapping
     public void topUp(@RequestBody WalletTopUpRequest walletTopUpRequest) {
         walletService.topUp(
                 walletTopUpRequest.userId(),

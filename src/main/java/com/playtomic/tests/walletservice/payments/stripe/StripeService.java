@@ -1,10 +1,10 @@
-package com.playtomic.tests.wallet.service;
+package com.playtomic.tests.walletservice.payments.stripe;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.playtomic.tests.walletservice.payments.Payment;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

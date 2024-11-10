@@ -1,4 +1,4 @@
-package com.playtomic.tests.wallet.service;
+package com.playtomic.tests.walletservice.payments.stripe;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

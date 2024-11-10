@@ -1,4 +1,4 @@
-package com.playtomic.tests.wallet.api;
+package com.playtomic.tests.walletservice.wallet;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -1,4 +1,4 @@
-package com.playtomic.tests.wallet.repository;
+package com.playtomic.tests.walletservice.wallet;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class WalletEntity {
+class WalletEntity {
     @Id
     @Column(name="user_id")
     private String userId;

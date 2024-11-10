@@ -1,12 +1,7 @@
-package com.playtomic.tests.wallet.service;
+package com.playtomic.tests.walletservice.wallet;
 
-import com.playtomic.tests.wallet.service.StripeServiceException;
-import com.playtomic.tests.wallet.service.WalletNotFoundException;
-import com.playtomic.tests.wallet.repository.WalletEntity;
-import com.playtomic.tests.wallet.repository.WalletRepository;
-import com.playtomic.tests.wallet.service.StripeService;
-import com.playtomic.tests.wallet.service.WalletService;
-import com.playtomic.tests.wallet.service.WalletTopUpException;
+import com.playtomic.tests.walletservice.payments.stripe.StripeService;
+import com.playtomic.tests.walletservice.payments.stripe.StripeServiceException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

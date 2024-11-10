@@ -1,7 +1,7 @@
-package com.playtomic.tests.wallet.service;
+package com.playtomic.tests.walletservice.wallet;
 
-import com.playtomic.tests.wallet.api.WalletResponse;
-import com.playtomic.tests.wallet.repository.WalletRepository;
+import com.playtomic.tests.walletservice.payments.stripe.StripeService;
+import com.playtomic.tests.walletservice.payments.stripe.StripeServiceException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -9,26 +9,25 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 @Service
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
-public class WalletService {
+class WalletService {
 
     private static final int DEFAULT_CENT_DIGITS = 2;
 
     StripeService stripeService;
     WalletRepository repository;
 
-    public WalletResponse get(String userId) {
+    WalletResponse get(String userId) {
         return repository.findById(userId)
                 .map(entity -> new WalletResponse(entity.getUserId(), entity.getBalance()))
                 .orElseThrow(() -> new WalletNotFoundException(userId));
     }
 
     @Transactional
-    public synchronized void topUp(String userId, String creditCard, long amount) {
+    synchronized void topUp(String userId, String creditCard, long amount) {
         var walletEntity = repository.findById(userId).orElseThrow(() -> new WalletNotFoundException(userId));
         try {
             stripeService.charge(creditCard, BigDecimal.valueOf(amount, DEFAULT_CENT_DIGITS));
