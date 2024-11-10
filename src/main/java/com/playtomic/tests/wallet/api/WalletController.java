@@ -22,7 +22,7 @@ public record WalletController(WalletService walletService) {
 
     @GetMapping("wallets/{userId}")
     public WalletResponse get(@PathVariable String userId) {
-        return walletService.get(userId).orElseThrow(() -> new WalletNotFoundException(userId));
+        return walletService.get(userId);
     }
 
     @PostMapping("wallets")

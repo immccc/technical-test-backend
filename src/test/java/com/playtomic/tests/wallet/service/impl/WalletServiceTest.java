@@ -51,7 +51,7 @@ class WalletServiceTest {
                     Optional.of(WalletEntity.builder().userId(USER_ID).balance(WALLET_BALANCE).build())
             );
 
-            var actualWalletResponse = walletService.get(USER_ID).orElseThrow();
+            var actualWalletResponse = walletService.get(USER_ID);
 
             Assertions.assertEquals(USER_ID, actualWalletResponse.userId());
             Assertions.assertEquals(WALLET_BALANCE, actualWalletResponse.balance());
@@ -61,11 +61,7 @@ class WalletServiceTest {
         @DisplayName("Should return empty if wallet does not exist")
         void testGetUnexistingWallet() {
             when(repository.findById(USER_ID)).thenReturn(Optional.empty());
-
-            var actualWalletResponse = walletService.get(USER_ID);
-
-            Assertions.assertFalse(actualWalletResponse.isPresent());
-
+            Assertions.assertThrows(WalletNotFoundException.class, () -> walletService.get(USER_ID));
         }
     }
 

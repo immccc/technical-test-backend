@@ -21,9 +21,10 @@ public class WalletService {
     StripeService stripeService;
     WalletRepository repository;
 
-    public Optional<WalletResponse> get(String userId) {
+    public WalletResponse get(String userId) {
         return repository.findById(userId)
-                .map(entity -> new WalletResponse(entity.getUserId(), entity.getBalance()));
+                .map(entity -> new WalletResponse(entity.getUserId(), entity.getBalance()))
+                .orElseThrow(() -> new WalletNotFoundException(userId));
     }
 
     @Transactional
