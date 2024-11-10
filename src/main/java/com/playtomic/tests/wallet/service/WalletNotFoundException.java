@@ -1,4 +1,4 @@
-package com.playtomic.tests.wallet.api;
+package com.playtomic.tests.wallet.service;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 
